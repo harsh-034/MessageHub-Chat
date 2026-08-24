@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>MessageHub</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+<body>
+
+  <!-- ================= LOGIN ================= -->
+
+  <div
+    id="authScreen"
+    class="auth-screen"
+  >
+
+    <div class="auth-card">
+
+      <div class="brand-big">
+        <span>💬</span>
+      </div>
+
+      <h1>MessageHub</h1>
+
+      <p class="auth-subtitle">
+        Private conversations made simple.
+      </p>
+
+
+      <div class="auth-tabs">
+
+        <button
+          id="loginTab"
+          class="auth-tab active"
+        >
+          Login
+        </button>
+
+        <button
+          id="registerTab"
+          class="auth-tab"
+        >
+          Register
+        </button>
+
+      </div>
+
+
+      <form id="authForm">
+
+        <label>Username</label>
+
+        <div class="auth-input">
+
+          <span>👤</span>
+
+          <input
+            id="authUsername"
+            type="text"
+            placeholder="Enter username"
+            maxlength="30"
+            autocomplete="username"
+            required
+          >
+
+        </div>
+
+
+        <label>Password</label>
+
+        <div class="auth-input">
+
+          <span>🔒</span>
+
+          <input
+            id="authPassword"
+            type="password"
+            placeholder="Enter password"
+            autocomplete="current-password"
+            required
+          >
+
+        </div>
+
+
+        <button
+          id="authButton"
+          class="primary-button"
+          type="submit"
+        >
+          Login
+        </button>
+
+      </form>
+
+
+      <div
+        id="authError"
+        class="auth-error"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= APP ================= -->
+
+  <div
+    id="app"
+    class="app hidden"
+  >
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div class="sidebar-header">
+
+        <div class="brand">
+
+          <div class="brand-icon">
+            💬
+          </div>
+
+          <div>
+
+            <strong>
+              MessageHub
+            </strong>
+
+            <small>
+              Private chat
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <button
+          id="logoutBtn"
+          class="icon-button"
+          title="Logout"
+        >
+          ↪
+        </button>
+
+      </div>
+
+
+      <div class="profile-card">
+
+        <div
+          id="myAvatar"
+          class="avatar me-avatar"
+        >
+          U
+        </div>
+
+        <div class="profile-info">
+
+          <strong id="myName">
+            User
+          </strong>
+
+          <span>
+            <i class="online-dot"></i>
+            Online
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="search-box">
+
+        <span>⌕</span>
+
+        <input
+          id="userSearch"
+          type="text"
+          placeholder="Search users..."
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <div class="section-title">
+        CONTACTS
+      </div>
+
+
+      <div
+        id="usersList"
+        class="users-list"
+      >
+
+        <div class="loading">
+          Loading users...
+        </div>
+
+      </div>
+
+    </aside>
+
+
+    <!-- CHAT -->
+
+    <main class="chat">
+
+      <header
+        id="chatHeader"
+        class="chat-header empty"
+      >
+
+        <div class="empty-header">
+
+          <div class="empty-logo">
+            💬
+          </div>
+
+          <div>
+
+            <strong>
+              MessageHub
+            </strong>
+
+            <span>
+              Select a person to start chatting
+            </span>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <div
+        id="messages"
+        class="messages"
+      >
+
+        <div class="chat-empty">
+
+          <div class="chat-empty-icon">
+            💬
+          </div>
+
+          <h2>
+            Your messages
+          </h2>
+
+          <p>
+            Select a contact from the left
+            to start a private conversation.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <footer
+        id="messageFooter"
+        class="message-footer hidden"
+      >
+
+        <div class="message-input-wrap">
+
+          <textarea
+            id="messageInput"
+            rows="1"
+            maxlength="5000"
+            placeholder="Type a message..."
+          ></textarea>
+
+          <button
+            id="sendButton"
+            class="send-button"
+            title="Send"
+          >
+            ➤
+          </button>
+
+        </div>
+
+        <small>
+          Press Enter to send • Shift + Enter for new line
+        </small>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
